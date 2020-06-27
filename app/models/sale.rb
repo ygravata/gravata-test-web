@@ -1,3 +1,3 @@
 class Sale < ApplicationRecord
-  belongs_to :partial_sale
+  belongs_to :company_partial_sale
 end

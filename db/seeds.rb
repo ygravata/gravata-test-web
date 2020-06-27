@@ -5,18 +5,29 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create!(email: 'ygravata@gmail.com', password: "testtest")
+puts 'Cleaning database...'
 
-PartialSale.create!(user_id: 1)
+CompanyPartialSale.destroy_all
+Sale.destroy_all
+User.destroy_all
+
+puts "Creating a user"
+new_user = User.create!(email: 'ygravata@gmail.com', password: "testtest")
+puts "User created!"
+
+
+company_seed = CompanyPartialSale.create!(user_id: new_user.id)
+
 
 5.times do
-    Sale.create!(
+    new_sale = Sale.create!(
         purchase_name: "João Silva",
         item_description: "R$10 off R$20 of food",
         item_price: 10.0,
         purchase_count: 2,
         merchant_address: "987 Fake St",
         merchant_name: "Bob's, Pizza",
-        partial_sale_id: 1
-    ) 
+        company_partial_sale_id: company_seed.id
+    )
+    puts "Sale #{new_sale.id} created" 
 end

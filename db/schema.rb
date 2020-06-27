@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_27_141228) do
+ActiveRecord::Schema.define(version: 2020_06_27_165246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "partial_sales", force: :cascade do |t|
+  create_table "company_partial_sales", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_partial_sales_on_user_id"
+    t.index ["user_id"], name: "index_company_partial_sales_on_user_id"
   end
 
   create_table "sales", force: :cascade do |t|
@@ -29,10 +29,10 @@ ActiveRecord::Schema.define(version: 2020_06_27_141228) do
     t.integer "purchase_count"
     t.text "merchant_address"
     t.string "merchant_name"
-    t.bigint "partial_sale_id", null: false
+    t.bigint "company_partial_sale_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["partial_sale_id"], name: "index_sales_on_partial_sale_id"
+    t.index ["company_partial_sale_id"], name: "index_sales_on_company_partial_sale_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,6 +47,6 @@ ActiveRecord::Schema.define(version: 2020_06_27_141228) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "partial_sales", "users"
-  add_foreign_key "sales", "partial_sales"
+  add_foreign_key "company_partial_sales", "users"
+  add_foreign_key "sales", "company_partial_sales"
 end

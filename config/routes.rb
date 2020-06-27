@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  resources :partial_sale
+  resources :company_partial_sale
   resources :sale
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -7,7 +7,7 @@ class CreateSales < ActiveRecord::Migration[6.0]
       t.integer :purchase_count
       t.text :merchant_address
       t.string :merchant_name
-      t.references :partial_sale, null: false, foreign_key: true
+      t.references :company_partial_sale, null: false, foreign_key: true
 
       t.timestamps
     end
