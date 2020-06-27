@@ -1,0 +1,2 @@
+class PartialSalesController < ApplicationController
+end
