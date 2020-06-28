@@ -21,10 +21,10 @@
   </div>
   <div class="home-buttons">
     <% if user_signed_in? %>
-      <%= link_to "Go to Sales", company_partial_sales_path, class: "btn btn-primary btn-sm" %>
+      <%= link_to "Go to Sales", company_partial_sales_path, class: "btn input-buttom" %>
       <%# <%= link_to "Log out", destroy_user_session_path, class: "btn btn-primary btn-sm", method: :delete %>
     <% else %>
-      <%= link_to "Login", new_user_session_path, class: "btn btn-primary btn-sm" %>
+      <%= link_to "Login", new_user_session_path, class: "btn input-buttom" %>
     <% end %>
   </div>
 

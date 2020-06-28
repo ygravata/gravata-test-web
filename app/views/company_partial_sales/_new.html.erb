@@ -1,19 +1,22 @@
-<%= simple_form_for @company_partial_sale,
-        wrapper: :vertical_form,
-        wrapper_mappings: {
-        boolean:       :horizontal_boolean,
-        check_boxes:   :horizontal_collection,
-        date:          :horizontal_multi_select,
-        datetime:      :horizontal_multi_select,
-        file:          :horizontal_file,
-        radio_buttons: :horizontal_collection,
-        range:         :horizontal_range,
-        time:          :horizontal_multi_select
-      } do |f| %>
-      <%= f.input :dataset,
-                  label: "Select your sales file",
-                  as: :file %>
-      <div>
-        <%= f.submit "Load", class: "btn btn-primary" %>
-      </div>
-<% end %>
+<div class="form-div">
+  <h5 class="form-title" style="font-weight:bold;">Helo <%= current_user.first_name %>! Upload your sale file bellow:</h5>
+  <%= simple_form_for @company_partial_sale,
+    wrapper: :horizontal_form,
+    wrapper_mappings: {
+    boolean:       :horizontal_boolean,
+    check_boxes:   :horizontal_collection,
+    date:          :horizontal_multi_select,
+    datetime:      :horizontal_multi_select,
+    file:          :horizontal_file,
+    radio_buttons: :horizontal_collection,
+    range:         :horizontal_range,
+    time:          :horizontal_multi_select
+  } do |f| %>
+    <%= f.input :dataset,
+                label: "File",
+                as: :file %>
+    <div class="input-buttom-div">
+      <%= f.submit "Load", class: "btn input-buttom" %>
+    </div>
+  <% end %>
+</div>

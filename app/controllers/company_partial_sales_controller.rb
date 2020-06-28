@@ -5,9 +5,19 @@ class CompanyPartialSalesController < ApplicationController
     @company_partial_sale = CompanyPartialSale.new
     @company_partial_sales = CompanyPartialSale.all.order(created_at: :desc)
     @sales = Sale.all  
-    @total = 0
+
+    @total_sales = 0
     @sales.each do |sale|
-        @total += sale.total_income
+        @total_sales += sale.total_income
+    end
+
+  
+    @last_input_total = 0
+    @last_sales = current_user.company_partial_sales.last
+    unless @last_sales.nil?
+      @last_sales.sales.each do |sale|
+        @last_input_total += sale.total_income
+      end
     end
   end
 
