@@ -4,10 +4,9 @@ class CompanyPartialSalesController < ApplicationController
   def index
     @company_partial_sale = CompanyPartialSale.new
     @company_partial_sales = CompanyPartialSale.all.order(created_at: :desc)
-    @all = Sale.all  
+    @sales = Sale.all  
     @total = 0
-
-    @all.each do |sale|
+    @sales.each do |sale|
         @total += sale.total_income
     end
   end
@@ -42,6 +41,5 @@ class CompanyPartialSalesController < ApplicationController
 
 	def company_partial_sale_params
 		params.require(:company_partial_sale).permit(:dataset)
-	end
-    
+	end 
 end
