@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts 'Cleaning database...'
 
+require 'csv'
+
 CompanyPartialSale.destroy_all
 Sale.destroy_all
 User.destroy_all
@@ -31,3 +33,13 @@ company_seed = CompanyPartialSale.create!(user_id: new_user.id)
     )
     puts "Sale #{new_sale.id} created" 
 end
+
+    #     csv_options = { col_sep: "\t", quote_char: '"', headers: :first_row }
+    #     # filepath = params[:company_partial_sale][:dataset]
+    #     filepath = ('storage/example_input.tab')
+         
+    # CSV.foreach(filepath, csv_options) do |row|
+    #   new_sale = Sale.new(purchase_name: row[0].to_s, item_description: row[1].to_s, item_price: row[2].to_i, purchase_count: row[3].to_i, merchant_address: row[4].to_s, merchant_name: row[5].to_s)
+    #   new_sale.company_partial_sale_id = CompanyPartialSale.last.id
+    #   new_sale.save!                  
+    # end
