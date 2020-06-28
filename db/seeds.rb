@@ -5,9 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-puts 'Cleaning database...'
-
 require 'csv'
+
+puts 'Cleaning database...'
 
 CompanyPartialSale.destroy_all
 Sale.destroy_all
