@@ -1,2 +1,10 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h2>Hello!</h2>
+<p>This is a small example of my will to learn and build challenging projects!</p>
+<p>Pleas</p>
+
+      <% if user_signed_in? %>
+        <%= link_to "Process my sales", company_partial_sales_path, class: "nav-link" %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+      <% else %>
+        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+      <% end %>
