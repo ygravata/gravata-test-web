@@ -1,10 +1,31 @@
-<h2>Hello!</h2>
-<p>This is a small example of my will to learn and build challenging projects!</p>
-<p>Pleas</p>
+<div class="gravata-container">
+  <div class="home-heading">
+    <h2 class='heading-title'>Hello!</h2>
+    <p class="heading-paragraph">I'm  <span style="font-weight:bold">Yuri Gravatá</span> and this is a my Test-Web-App!</p>
+    <p class="heading-paragraph">I decided to increment a bit more the project, as you can see, so you don't have any doubt that I'm the right one for this job position at Nuuvem!</p>
+  </div>
 
-      <% if user_signed_in? %>
-        <%= link_to "Process my sales", company_partial_sales_path, class: "nav-link" %>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-      <% else %>
-        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-      <% end %>
+  <div class="instructions-heading">
+    <h2 class="instructions-title">Instructions:</h2>
+    <p class="instructions-paragraph">You're a branch selling consultant and need to upload your branch results to the company system.</p> 
+    <p class="instructions-paragraph">For that you need to:</p> 
+    <ul class="instructions-list">
+      <li class="instructions-item"><span>1.</span> Sign-up / Login;</p></li>
+      <li class="instructions-item"><span>2.</span> Acess sales page;</p></li>
+      <li class="instructions-item"><span>3.</span> Upload your sales file;</p></li>
+    </ul>
+    <p class="instructions-paragraph">You can (if you need):</p> 
+    <ul class="instructions-list">
+      <li class="instructions-item"><span>4.</span> Remove some of your sale results;</p></li>
+    </ul>
+  </div>
+  <div class="home-buttons">
+    <% if user_signed_in? %>
+      <%= link_to "Go to Sales", company_partial_sales_path, class: "btn btn-primary btn-sm" %>
+      <%# <%= link_to "Log out", destroy_user_session_path, class: "btn btn-primary btn-sm", method: :delete %>
+    <% else %>
+      <%= link_to "Login", new_user_session_path, class: "btn btn-primary btn-sm" %>
+    <% end %>
+  </div>
+
+</div>

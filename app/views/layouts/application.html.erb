@@ -14,12 +14,8 @@
   <body>
     <div class="container-fluid background">
       <%= render 'shared/flashes' %>
-
-
-      <%= yield %>
-    
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <div class="alert"><%= alert %></div>
+      <%= yield %>  
     </div>
   </body>
 </html>
