@@ -5,8 +5,15 @@
 <div class="gravata-container">
   <div class="sales-heading">
     <h2 class="heading-title">Sales Tracking</h2>
-    <h2>Accumulated total gross income: <span class="total-sales-highlight">R$ <%= number_with_precision(@total_sales, precision: 2) %></span></h2>
-    <h2 class="last-input-heading">Your last input gross income: <span class="input-sales-highlight">R$ <%= number_with_precision(@last_input_total, precision: 2) %></span></h2> 
+    <h2>Accumulated total gross income: <span class="total-sales-highlight">R$ <%= number_with_precision(@total_gross_income, precision: 2) %></span></h2>
+    <div class="d-flex">
+      <h2 class="last-input-heading pr-2">Your last input gross income: <span class="input-sales-highlight">R$ <%= number_with_precision(@user_last_input_total, precision: 2) %></span></h2> 
+      <% if !@user_last_input.nil? && policy(@user_last_input).destroy? %>
+        <%= link_to @user_last_input, method: :delete, data: { confirm: 'Are you sure?'} do %>
+          <i class="fas fa-trash-alt pt-1" style="font-size: 22px; color:white;"></i>
+          <% end %>
+      <% end %>
+    </div>
   </div>
 
   <div class="input-file">
@@ -25,6 +32,7 @@
         <th scope="col">Merchant Address</th>
         <th scope="col">Merchant Name</th>
         <th scope="col">Total</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -40,6 +48,13 @@
             <td><%= sale.merchant_address %></td>
             <td><%= sale.merchant_name %></td>   
             <td>R$ <%= number_with_precision(sale.total_income, precision: 2) %> </td>
+            <td>              
+              <% if sale.company_partial_sale.user == current_user %>
+                <%= link_to sale_path(sale), method: :delete, data: { confirm: 'Are you sure?'} do %>
+                  <i class="fas fa-trash-alt pt-1" style="font-size: 22px; color:white;"></i>
+                  <% end %>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       <% end %>   
