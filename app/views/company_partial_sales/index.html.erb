@@ -51,8 +51,8 @@
             <td>              
               <% if sale.company_partial_sale.user == current_user %>
                 <%= link_to sale_path(sale), method: :delete, data: { confirm: 'Are you sure?'} do %>
-                  <i class="fas fa-trash-alt pt-1" style="font-size: 22px; color:white;"></i>
-                  <% end %>
+                  <i class="fas fa-trash-alt pt-1" style="font-size: 18px; color:white;"></i>
+                <% end %>
               <% end %>
             </td>
           </tr>
