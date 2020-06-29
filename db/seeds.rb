@@ -21,25 +21,50 @@ puts "User created!"
 company_seed = CompanyPartialSale.create!(user_id: new_user.id)
 
 
-5.times do
-    new_sale = Sale.create!(
-        purchase_name: "João Silva",
-        item_description: "R$10 off R$20 of food",
-        item_price: 10.0,
-        purchase_count: 2,
-        merchant_address: "987 Fake St",
-        merchant_name: "Bob's, Pizza",
-        company_partial_sale_id: company_seed.id
-    )
-    puts "Sale #{new_sale.id} created" 
-end
+new_sale = Sale.create!(
+    purchase_name: "João Silva",
+    item_description: "R$10 off R$20 of food",
+    item_price: 10.0,
+    purchase_count: 2,
+    merchant_address: "987 Fake St",
+    merchant_name: "Bob's, Pizza",
+    company_partial_sale_id: company_seed.id
+)
 
-    #     csv_options = { col_sep: "\t", quote_char: '"', headers: :first_row }
-    #     # filepath = params[:company_partial_sale][:dataset]
-    #     filepath = ('storage/example_input.tab')
-         
-    # CSV.foreach(filepath, csv_options) do |row|
-    #   new_sale = Sale.new(purchase_name: row[0].to_s, item_description: row[1].to_s, item_price: row[2].to_i, purchase_count: row[3].to_i, merchant_address: row[4].to_s, merchant_name: row[5].to_s)
-    #   new_sale.company_partial_sale_id = CompanyPartialSale.last.id
-    #   new_sale.save!                  
-    # end
+puts "Sale #{new_sale.id} created" 
+
+new_sale = Sale.create!(
+    purchase_name: "Amy Pond",
+    item_description: "R$30 of awesome for R$10",
+    item_price: 10.0,
+    purchase_count: 5,
+    merchant_address: "456 Unreal Rd",
+    merchant_name: "Tom's Awesome Shop",
+    company_partial_sale_id: company_seed.id
+)
+
+puts "Sale #{new_sale.id} created" 
+
+new_sale = Sale.create!(
+    purchase_name: "Marty McFly",
+    item_description: "R$20 Sneakers for R$5",
+    item_price: 5.0,
+    purchase_count: 1,
+    merchant_address: "123 Fake St",
+    merchant_name: "Tom's Awesome Shop",
+    company_partial_sale_id: company_seed.id
+)
+
+puts "Sale #{new_sale.id} created" 
+
+new_sale = Sale.create!(
+    purchase_name: "Snake Plissken",
+    item_description: "R$20 Sneakers for R$5",
+    item_price: 5.0,
+    purchase_count: 4,
+    merchant_address: "123 Fake St",
+    merchant_name: "Tom's Awesome Shop",
+    company_partial_sale_id: company_seed.id
+)
+
+puts "Sale #{new_sale.id} created" 

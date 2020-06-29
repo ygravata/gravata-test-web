@@ -3,9 +3,15 @@
     <h2 class='heading-title'>Hello!</h2>
     <p class="heading-paragraph">I'm  <span style="font-weight:bold">Yuri Gravatá</span> and this is a my Test-Web-App!</p>
     <p class="heading-paragraph">I decided to increment a bit more the project, as you can see, so you don't have any doubt that I'm the right one for this job position at Nuuvem!</p>
+    
   </div>
 
   <div class="instructions-heading">
+    <div class="home-buttons">
+      <% if user_signed_in? %>
+        <%= link_to "Go to Sales", company_partial_sales_path, class: "btn input-buttom" %>
+      <% end %>
+    </div>
     <h2 class="instructions-title">Instructions:</h2>
     <p class="instructions-paragraph">You're a branch selling consultant and need to upload your branch results to the company system.</p> 
     <p class="instructions-paragraph">For that you need to:</p> 
@@ -21,10 +27,7 @@
     </ul>
   </div>
   <div class="home-buttons">
-    <% if user_signed_in? %>
-      <%= link_to "Go to Sales", company_partial_sales_path, class: "btn input-buttom" %>
-      <%# <%= link_to "Log out", destroy_user_session_path, class: "btn btn-primary btn-sm", method: :delete %>
-    <% else %>
+    <% unless user_signed_in? %>
       <%= link_to "Login", new_user_session_path, class: "btn input-buttom" %>
     <% end %>
   </div>
