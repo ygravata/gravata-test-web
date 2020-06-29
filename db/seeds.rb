@@ -14,7 +14,7 @@ Sale.destroy_all
 User.destroy_all
 
 puts "Creating a user"
-new_user = User.create!(email: 'ygravata@gmail.com', password: "testtest")
+new_user = User.create!(email: 'ygravata@gmail.com', password: "testtest", first_name: "Yuri")
 puts "User created!"
 
 
